@@ -1,6 +1,18 @@
 'use client'
 import Image from "next/image";
 import { Cart, Search, Wishlist } from "@/public/icons";
+import {
+    DropdownMenu,
+    DropdownMenuTrigger,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu"
+
+import { Button } from "@/components/ui/button"
+
+
 function Navbar() {
     return (
         <div className="w-full bg-white flex justify-between  py-4 text-black border-b border-[#dcdbdb]">
@@ -29,7 +41,7 @@ function Navbar() {
                 <div>
                     <ul className="flex items-center gap-6">
                         <li className="flex items-center gap-9 h-9.5 py-2 pl-5 pr-2 bg-[#F5F5F5] rounded-sm">
-                            <input className="bg-[#F5F5F5] h-full"
+                            <input className="bg-[#F5F5F5] h-full focus:outline-none"
                                 type="text" placeholder="What are you looking for?" />
                             <button className="bg-[#F5F5F5] h-6 w-6">
                                 <Image src={Search} alt="search" />
@@ -41,12 +53,28 @@ function Navbar() {
                                     <Image src={Wishlist} alt="wishlist" />
                                 </li>
                                 <li>
-                                    <Image src={Cart} alt="cart" />
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Image src={Cart} alt="cart" />
+                                        </DropdownMenuTrigger>
+
+                                        <DropdownMenuContent className="w-56">
+                                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                            <DropdownMenuSeparator />
+
+                                            <DropdownMenuItem>Profile</DropdownMenuItem>
+                                            <DropdownMenuItem>Billing</DropdownMenuItem>
+                                            <DropdownMenuItem>Settings</DropdownMenuItem>
+
+                                            <DropdownMenuSeparator />
+                                            <DropdownMenuItem className="text-red-500">
+                                                Logout
+                                            </DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
                                 </li>
                             </ul>
                         </li>
-
-
                     </ul>
                 </div>
             </div>
