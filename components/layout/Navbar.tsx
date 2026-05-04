@@ -1,6 +1,8 @@
-'use client'
-import Image from "next/image";
-import { Cart, Search, Wishlist } from "@/public/icons";
+'use client';
+
+import Image from 'next/image';
+import { Cart, Search, Wishlist } from '@/public/icons';
+import { ThemeToggle } from '../common';
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -8,10 +10,7 @@ import {
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu"
-
-import { Button } from "@/components/ui/button"
-
+} from '@/components/ui/dropdown-menu';
 
 function Navbar() {
     return (
@@ -41,8 +40,11 @@ function Navbar() {
                 <div>
                     <ul className="flex items-center gap-6">
                         <li className="flex items-center gap-9 h-9.5 py-2 pl-5 pr-2 bg-[#F5F5F5] rounded-sm">
-                            <input className="bg-[#F5F5F5] h-full focus:outline-none"
-                                type="text" placeholder="What are you looking for?" />
+                            <input
+                                className="bg-[#F5F5F5] h-full focus:outline-none"
+                                type="text"
+                                placeholder="What are you looking for?"
+                            />
                             <button className="bg-[#F5F5F5] h-6 w-6">
                                 <Image src={Search} alt="search" />
                             </button>
@@ -59,12 +61,20 @@ function Navbar() {
                                         </DropdownMenuTrigger>
 
                                         <DropdownMenuContent className="w-56">
-                                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                            <DropdownMenuLabel>
+                                                My Account
+                                            </DropdownMenuLabel>
                                             <DropdownMenuSeparator />
 
-                                            <DropdownMenuItem>Profile</DropdownMenuItem>
-                                            <DropdownMenuItem>Billing</DropdownMenuItem>
-                                            <DropdownMenuItem>Settings</DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                Profile
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                Billing
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                Settings
+                                            </DropdownMenuItem>
 
                                             <DropdownMenuSeparator />
                                             <DropdownMenuItem className="text-red-500">
@@ -77,9 +87,11 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
+
+                <ThemeToggle />
             </div>
         </div>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;
